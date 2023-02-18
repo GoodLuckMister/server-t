@@ -8,7 +8,7 @@
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
-    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
+    "seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
