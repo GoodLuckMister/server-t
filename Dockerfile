@@ -3,5 +3,5 @@ WORKDIR /app
 COPY package.json ./
 COPY yarn.lock ./
 COPY ./ ./
-RUN npm i
-CMD ["yarn", "run", "dev"]
+RUN yarn install --
+CMD ["yarn", "run",  "seed:config", "seed","dev"]
