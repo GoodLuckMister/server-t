@@ -5,6 +5,7 @@
   "author": "Tom Nagle",
   "license": "MIT",
   "scripts": {
+    "start": "ts-node src/index.ts",
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
