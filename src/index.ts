@@ -15,6 +15,7 @@ import { User } from "./schema/user.schema";
 import Context from "./types/context";
 import authChecker from "./utils/authChecker";
 import MysqlDataSource from "./utils/mysql";
+import cors from "cors";
 
 async function bootstrap() {
   // Build the schema
@@ -28,6 +29,12 @@ async function bootstrap() {
   const app = express();
 
   app.use(cookieParser());
+  // app.use(
+  //   cors({
+  //     origin: "*",
+  //     credentials: true,
+  //   })
+  // );
 
   // Create the apollo server
   const server = new ApolloServer({
@@ -47,11 +54,14 @@ async function bootstrap() {
         : ApolloServerPluginLandingPageGraphQLPlayground(),
     ],
   });
-
+  const corsOptions = {
+    origin: true,
+    credentials: true,
+  };
   await server.start();
   // apply middleware to server
 
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app, cors: corsOptions, path: "/graphql" });
 
   // app.listen on express server
   app.listen({ port: 4000 }, () => {

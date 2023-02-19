@@ -87,4 +87,7 @@ export class UpdateContactInput {
 
   @Field()
   phone: string;
+
+  @Field()
+  contactId: string;
 }

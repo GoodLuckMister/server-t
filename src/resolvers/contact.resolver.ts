@@ -31,6 +31,13 @@ export default class ContactResolver {
   }
 
   @Authorized()
+  @Mutation(() => Boolean)
+  async deleteContact(@Arg("input") input: GetContactInput) {
+    const contact = await this.contactService.deleteContact(input);
+    return Boolean(contact.raw);
+  }
+
+  @Authorized()
   @Query(() => [Contact], { nullable: true })
   contacts() {
     return this.contactService.findContact();

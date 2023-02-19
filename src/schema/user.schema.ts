@@ -33,7 +33,8 @@ export class User extends BaseEntity {
   @Column()
   password: string;
 
-  @Column({ default: "img" })
+  @Field(() => String)
+  @Column({ default: "img", nullable: true })
   avatar_img?: string;
 
   @CreateDateColumn({
