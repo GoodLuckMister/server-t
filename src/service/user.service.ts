@@ -49,6 +49,8 @@ class UserService {
       // sign a jwt
       const token = signJwt(user);
 
+      console.log(token);
+
       // set a cookie for the jwt
       context.res.cookie("accessToken", token, {
         maxAge: 3.154e10, // 1 year
