@@ -15,7 +15,6 @@ import { User } from "./schema/user.schema";
 import Context from "./types/context";
 import authChecker from "./utils/authChecker";
 import MysqlDataSource from "./utils/mysql";
-import cors from "cors";
 
 async function bootstrap() {
   // Build the schema
@@ -29,12 +28,6 @@ async function bootstrap() {
   const app = express();
 
   app.use(cookieParser());
-  // app.use(
-  //   cors({
-  //     origin: "*",
-  //     credentials: true,
-  //   })
-  // );
 
   // Create the apollo server
   const server = new ApolloServer({
