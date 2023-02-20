@@ -37,12 +37,16 @@ export class User extends BaseEntity {
   @Column({ default: "img", nullable: true })
   avatar_img?: string;
 
+  @Column()
+  @Field(() => Date)
   @CreateDateColumn({
     nullable: false,
     name: "created_at",
   })
   created_at: Date;
 
+  @Column()
+  @Field(() => Date)
   @UpdateDateColumn({
     nullable: false,
     name: "updated_at",

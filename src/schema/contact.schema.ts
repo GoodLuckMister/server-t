@@ -34,12 +34,16 @@ export class Contact extends BaseEntity {
   @Field(() => String)
   email: string;
 
+  @Column()
+  @Field(() => Date)
   @CreateDateColumn({
     nullable: false,
     name: "created_at",
   })
   created_at: Date;
 
+  @Column()
+  @Field(() => Date)
   @UpdateDateColumn({
     nullable: false,
     name: "updated_at",
