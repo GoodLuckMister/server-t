@@ -57,8 +57,8 @@ async function bootstrap() {
   server.applyMiddleware({ app, cors: corsOptions, path: "/graphql" });
 
   // app.listen on express server
-  app.listen({ port: 4000 }, () => {
-    console.log("App is listening on http://localhost:4000");
+  app.listen({ port: process.env.PORT || 5000 }, () => {
+    console.log(`App is listening on port ${process.env.PORT}`);
   });
 
   MysqlDataSource.initialize()
