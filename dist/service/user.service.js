@@ -38,13 +38,11 @@ class UserService {
             }
             // sign a jwt
             const token = (0, jwt_1.signJwt)(user);
+            console.log(token);
             // set a cookie for the jwt
             context.res.cookie("accessToken", token, {
                 maxAge: 3.154e10,
                 httpOnly: true,
-                domain: "localhost",
-                path: "/",
-                sameSite: "strict",
                 secure: process.env.NODE_ENV === "production",
             });
             // return the jwt

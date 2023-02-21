@@ -4,10 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.verifyJwt = exports.signJwt = void 0;
-const config_1 = __importDefault(require("config"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const publicKey = Buffer.from(config_1.default.get("publicKey"), "base64").toString("ascii");
-const privateKey = Buffer.from(config_1.default.get("privateKey"), "base64").toString("ascii");
+const publicKey = Buffer.from(process.env.PUBLIC_KEY, "base64").toString("ascii");
+const privateKey = Buffer.from(process.env.PRIVATE_KEY, "base64").toString("ascii");
 function signJwt(object, options) {
     return jsonwebtoken_1.default.sign(JSON.stringify(object), privateKey, {
         ...(options && options),
