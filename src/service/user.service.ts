@@ -54,6 +54,8 @@ class UserService {
       // set a cookie for the jwt
       context.res.cookie("accessToken", token, {
         maxAge: 3.154e10, // 1 year
+        sameSite: "none",
+        domain: process.env.CLIENT_DOMAIN || "localhost",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
       });

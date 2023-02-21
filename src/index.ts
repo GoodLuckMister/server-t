@@ -58,7 +58,7 @@ async function bootstrap() {
 
   // app.listen on express server
   app.listen({ port: process.env.PORT || 4000 }, () => {
-    console.log(`App is listening on port ${process.env.PORT}`);
+    console.log(`App is listening on port ${process.env.PORT || 4000}`);
   });
 
   MysqlDataSource.initialize()
